@@ -21,9 +21,10 @@ defmodule ChpterPhoenixWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ChpterPhoenixWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ChpterPhoenixWeb do
+    pipe_through :api
+    resources "/transactions", TransactionController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #
