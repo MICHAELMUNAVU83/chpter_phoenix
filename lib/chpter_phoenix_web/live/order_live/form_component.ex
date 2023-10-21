@@ -86,12 +86,12 @@ defmodule ChpterPhoenixWeb.OrderLive.FormComponent do
       {:ok, %HTTPoison.Response{status_code: 400, body: body}} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Payment Failed ")}
+         |> put_flash(:error, "Payment Failed")}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Payment Failed , Timeout error")}
+         |> put_flash(:error, "Payment Failed , Timeout error")}
     end
   end
 end
