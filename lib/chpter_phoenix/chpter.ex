@@ -6,7 +6,8 @@ defmodule ChpterPhoenix.Chpter do
         email,
         amount,
         location,
-        callback_url
+        callback_url,
+        transaction_reference
       ) do
     header = header(api_key)
 
@@ -17,7 +18,8 @@ defmodule ChpterPhoenix.Chpter do
         name,
         location,
         amount,
-        callback_url
+        callback_url,
+        transaction_reference
       )
 
     url = "https://api.chpter.co/v1/initiate/mpesa-payment"
@@ -46,7 +48,8 @@ defmodule ChpterPhoenix.Chpter do
          name,
          location,
          amount,
-         callback_url
+         callback_url,
+          transaction_reference
        ) do
     %{
       customer_details: %{
@@ -60,17 +63,17 @@ defmodule ChpterPhoenix.Chpter do
         "currency" => "KES",
         "delivery_fee" => 0.0,
         "discount_fee" => 0.0,
-        "total" => 1
+        "total" => amount
       },
       callback_details: %{
-        "transaction_reference" => phone_number,
+        "transaction_reference" => transaction_reference,
         "callback_url" => callback_url
       }
     }
   end
 
   def check_for_payment(transaction_reference, api_endpoint) do
-    body = HTTPoison.get!("http://localhost:4000/api/transactions")
+    body = HTTPoison.get!(api_endpoint)
 
     customer_record =
       Poison.decode!(body.body)["data"]

@@ -50,6 +50,7 @@ defmodule ChpterPhoenix.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:poison, "~> 5.0"},
+      {:timex, "~> 3.0"},
       {:httpoison, "~> 2.1"}
     ]
   end

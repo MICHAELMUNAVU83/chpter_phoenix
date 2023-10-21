@@ -21,15 +21,6 @@ defmodule ChpterPhoenixWeb.OrderLive.Index do
     |> assign(:order, Orders.get_order!(id))
   end
 
-  def handle_event("test", %{"value" => ""}, socket) do
-    body = Chpter.check_for_payment("mike8", "3r")
-
-    IO.inspect(body)
-
-    {:noreply,
-     socket
-     |> put_flash(:info, "Order was successfully created.")}
-  end
 
   defp apply_action(socket, :new, _params) do
     socket
