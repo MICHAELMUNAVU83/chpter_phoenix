@@ -68,4 +68,21 @@ defmodule ChpterPhoenix.Chpter do
       }
     }
   end
+
+  def check_for_payment(transaction_reference, api_endpoint) do
+    body = HTTPoison.get!("http://localhost:4000/api/transactions")
+
+    customer_record =
+      Poison.decode!(body.body)["data"]
+      |> Enum.find(fn record -> record["transaction_reference"] == transaction_reference end)
+
+    customer_record
+
+    if customer_record != nil do
+      customer_record
+    else
+      Process.sleep(1000)
+      check_for_payment(transaction_reference, api_endpoint)
+    end
+  end
 end

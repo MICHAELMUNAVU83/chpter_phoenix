@@ -3,6 +3,7 @@ defmodule ChpterPhoenixWeb.OrderLive.Index do
 
   alias ChpterPhoenix.Orders
   alias ChpterPhoenix.Orders.Order
+  alias ChpterPhoenix.Chpter
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,6 +19,16 @@ defmodule ChpterPhoenixWeb.OrderLive.Index do
     socket
     |> assign(:page_title, "Edit Order")
     |> assign(:order, Orders.get_order!(id))
+  end
+
+  def handle_event("test", %{"value" => ""}, socket) do
+    body = Chpter.check_for_payment("mike8", "3r")
+
+    IO.inspect(body)
+
+    {:noreply,
+     socket
+     |> put_flash(:info, "Order was successfully created.")}
   end
 
   defp apply_action(socket, :new, _params) do
