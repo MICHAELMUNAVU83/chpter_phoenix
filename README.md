@@ -23,6 +23,11 @@ It is a pre-requisite for the article i wrote on Medium
 
 ![Screenshot 2023-10-21 at 10 43 33](https://github.com/MICHAELMUNAVU83/chpter_callback_url/assets/86654131/5238ebe6-bcff-4314-bb9b-d4e7f9a69d3c)
 
+![Screenshot 2023-10-21 at 16 23 54](https://github.com/MICHAELMUNAVU83/chpter_phoenix/assets/86654131/8be6b45f-6f5a-4fae-9d49-55c283d2e1d8)
+
+
+![Screenshot 2023-10-21 at 16 23 38](https://github.com/MICHAELMUNAVU83/chpter_phoenix/assets/86654131/2bf4164a-6b45-4941-9fff-f4ae4fd34aba)
+
 ## Technologies
 
 I used `Elixir `  and `Phoenix Live View` for this project.
